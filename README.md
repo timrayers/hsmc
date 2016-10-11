@@ -1,2 +1,2 @@
-# methodist-maidenhead
-HS Methodist Church WP site
+# HSMC
+High St Methodist Church WP site
