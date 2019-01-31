@@ -1,0 +1,27 @@
+#file-upload-form {
+  background: #f3f3f3;
+  border: 2px solid #dfdfdf;
+  border-radius: 10px;
+  margin: 2em 0;
+  padding: 1em;
+}
+#file-upload-form ol li {
+  margin: 1em auto;
+}
+#file-upload-form select, #file-upload-form input[type="file"] {
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .25rem;
+  -webkit-background-clip: padding-box;
+  color: #303030;
+  display: block;
+  line-height: 1.25;
+  height: 3em;
+  padding: .5rem .75rem;
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  width: 60%;
+}
