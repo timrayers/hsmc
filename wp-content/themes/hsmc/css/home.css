@@ -1,0 +1,119 @@
+/* Specific declarations for the HSMC homepage */
+.home .content {
+  margin: 0;
+}
+.home .wrap > section {
+  margin: 20px 0;
+  padding: 20px 0;
+}
+.home .wrap > section h1 {
+  font-size: 1.4em;
+}
+#promo_banner {
+  margin: 20px 0;
+}
+#double_boxes {
+  text-align: center;
+  margin: 0 auto;
+}
+#double_boxes .double_box {
+  color: #FFF;
+  box-sizing: border-box;
+  display: inline-block;
+  min-height: 120px;
+  line-height: 1.2;
+  margin: 3px -3px;
+  padding: 30px 6px;
+  vertical-align: top;
+  width: 100%;
+}
+#double_boxes .double_box:first-of-type {
+  background: #0A4366;
+}
+#double_boxes .double_box:last-of-type {
+  background: #FFF;
+  color: #0A4366;
+}
+#double_boxes .double_box span.title {
+  display: block;
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+#double_boxes .double_box span.cutout-btn {
+  border: 2px solid #FFF;
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  transition: 0.2s ease;
+}
+#double_boxes .double_box span.cutout-btn:hover {
+  background: #FFF;
+  color: #0A4366;
+}
+#double_boxes .double_box:last-of-type span.cutout-btn {
+  border-color: #0A4366;
+}
+#double_boxes .double_box:last-of-type span.cutout-btn:hover {
+  background: #0A4366;
+  color: #FFF;
+}
+@media only screen and (min-width: 768px) {
+  #double_boxes .double_box {
+    width: 50%;
+  }
+}
+#meet_the_minister {
+  border-top: 1px solid #efefef;
+}
+#meet_the_minister img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 200px;
+}
+@media only screen and (min-width: 425px) {
+  #meet_the_minister img {
+    float: right;
+    margin-left: 12px;
+  }
+}
+
+#christmas-events {
+  background: #FFF5F5;
+  border: 1px solid #EFEFEF;
+  padding: 1em 2em;
+}
+#christmas-events .tree-img {
+  display: none;
+  margin-right: 1em;
+  width: 40%;
+  vertical-align: top;
+}
+#christmas-events header {
+  text-align: center;
+}
+#christmas-events h1 {
+  color: #D1231E;
+}
+#christmas-events ul {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  vertical-align: top;
+}
+#christmas-events ul li {
+  margin-bottom: 0.8em;
+}
+@media only screen and (min-width: 768px) {
+  #christmas-events {
+    border-left: 3px solid #D1231E;
+  }
+  #christmas-events ul {
+    width: 55%;
+  }
+  #christmas-events .tree-img {
+    display: inline-block;
+  }
+}

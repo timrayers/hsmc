@@ -1,0 +1,20 @@
+{
+  "logger": {
+    "title": "Remote Sync"
+  },
+  "uploadOnSave": true,
+  "useAtomicWrites": false,
+  "deleteLocal": false,
+  "hostname": "138.68.139.185",
+  "port": "22",
+  "target": "/var/www/html/",
+  "ignore": [
+    ".remote-sync.json",
+    ".git/**"
+  ],
+  "username": "timrayers",
+  "keyfile": "/Users/timrayers/id_rsa2.ppk",
+  "passphrase": "Locu3622",
+  "watch": [],
+  "transport": "scp"
+}
