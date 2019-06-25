@@ -13,12 +13,15 @@ if($_POST && isset($_POST['submit'])) {
   switch($_POST['upload_type']) {
     case('notices'):
       $target_file = "notices.pdf";
+      $replace_file = "notices-prev.pdf";
     break;
     case('bookings'):
       $target_file = "bookings.pdf";
+      $replace_file = "bookings-prev.pdf";
     break;
     case('rota'):
       $target_file = "rota.pdf";
+      $replace_file = "rota-prev.pdf";
     break;
     default:
       $upload_errors[] = "Sorry, there has been a problem with the uploader. Please contact support.";
@@ -26,6 +29,7 @@ if($_POST && isset($_POST['submit'])) {
   }
 
   $target_file = $target_dir . $target_file;
+  $replace_file = $target_dir . $replace_file;
 
   // Check file size
   if ($_FILES["fileToUpload"]["size"] > 2000000) {
@@ -51,6 +55,11 @@ if($_POST && isset($_POST['submit'])) {
 <main class="main_class content" style="padding-top: 4em;">
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     <h1><?php the_title(); ?></h1>
+
+    <div class="alert info">
+      <b>25/06/19</b>: Previously uploaded files will no longer be automatically overwritten; they can be accessed from the website footer or <a href="/schedule">members section</a>.
+    </div>
+
     <?php the_content(); ?>
 
     <?php
@@ -62,6 +71,9 @@ if($_POST && isset($_POST['submit'])) {
       }
     // if everything is ok, try to upload file
     } else if($_POST['submit']) {
+      // rename previous version
+      rename($target_file, $replace_file);
+      // rename uploaded version
       if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo '<div class="alert success">The file '. basename( $_FILES["fileToUpload"]["name"]). ' has been uploaded (' . ucfirst($_POST['upload_type']) . ')</div>';
       } else {

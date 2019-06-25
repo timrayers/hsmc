@@ -222,7 +222,10 @@ function hsmc_show_notices_link($atts) {
 					return null;
 			}
 		}	else {
-			return "<a class='btn open_file' href='" . get_stylesheet_directory_uri() . "/downloads/notices.pdf?download=notices' target='_blank' class='open-notices'>View Notices</a>";
+			return "<div class='btn open_file'>
+						<a href='" . get_stylesheet_directory_uri() . "/downloads/notices.pdf?download=notices' target='_blank' class='open-notices'>View Notices</a><br>
+						<a href='" . get_stylesheet_directory_uri() . "/downloads/notices-prev.pdf' target='_blank' class='open-download-prev'>Previous</a>
+					</div>";
 		}
 	} else {
 		return null;
@@ -231,9 +234,12 @@ function hsmc_show_notices_link($atts) {
 add_shortcode( 'show_notices_link', 'hsmc_show_notices_link' );
 
 function hsmc_show_bookings_link() {
-	//[show_notices_link]
+	//[show_bookings_link]
 	if(file_exists(get_stylesheet_directory() . '/downloads/bookings.pdf')) {
-		return "<a class='btn open_file' href='" . get_stylesheet_directory_uri() . "/downloads/bookings.pdf?download=bookings' target='_blank'>View Booking Sheet</a>";
+		return "<div class='btn open_file'>
+				  <a href='" . get_stylesheet_directory_uri() . "/downloads/bookings.pdf?download=bookings' target='_blank'>View Booking Sheet</a><br>
+				  <a href='" . get_stylesheet_directory_uri() . "/downloads/bookings-prev.pdf' target='_blank' class='open-download-prev'>Previous</a>
+				</div>";
 	} else {
 		return null;
 	}
@@ -241,9 +247,12 @@ function hsmc_show_bookings_link() {
 add_shortcode( 'show_bookings_link', 'hsmc_show_bookings_link' );
 
 function hsmc_show_rota_link() {
-	//[show_notices_link]
+	//[show_rota_link]
 	if(file_exists(get_stylesheet_directory() . '/downloads/rota.pdf')) {
-		return "<a class='btn open_file' href='" . get_stylesheet_directory_uri() . "/downloads/rota.pdf?download=rota' target='_blank'>View Rota</a>";
+		return "<div class='btn open_file'>
+				  <a href='" . get_stylesheet_directory_uri() . "/downloads/rota.pdf?download=rota' target='_blank'>View Rota</a><br>
+				  <a href='" . get_stylesheet_directory_uri() . "/downloads/rota-prev.pdf' target='_blank' class='open-download-prev'>Previous</a>
+				</div>";
 	} else {
 		return null;
 	}

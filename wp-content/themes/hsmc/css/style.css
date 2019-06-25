@@ -20,6 +20,11 @@
   border-color: #d0e9c6;
   color: #3c763d;
 }
+.alert.info {
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+  color: #0c5460;
+}
 @media only screen and (max-width: 768px) {
   ol {
     margin: 0 0 0.8em 1em;
@@ -253,4 +258,7 @@ table.regular-events ul li {
   text-align: center;
   vertical-align: top;
   width: 200px;
+}
+.btn.open_file .open-download-prev {
+  font-size: 0.7em;
 }
