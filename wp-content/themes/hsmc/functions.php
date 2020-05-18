@@ -222,7 +222,10 @@ function hsmc_show_notices_link($atts) {
 					return null;
 			}
 		}	else {
-			return "<a class='btn open_file' href='" . get_stylesheet_directory_uri() . "/downloads/notices.pdf?download=notices' target='_blank' class='open-notices'>View Notices</a>";
+			return "<div class='btn open_file'>
+						<a href='" . get_stylesheet_directory_uri() . "/downloads/notices.pdf?download=notices' target='_blank' class='open-notices'>View Notices</a><br>
+						<a href='" . get_stylesheet_directory_uri() . "/downloads/notices-prev.pdf' target='_blank' class='open-download-prev'>Previous</a>
+					</div>";
 		}
 	} else {
 		return null;
@@ -231,9 +234,12 @@ function hsmc_show_notices_link($atts) {
 add_shortcode( 'show_notices_link', 'hsmc_show_notices_link' );
 
 function hsmc_show_bookings_link() {
-	//[show_notices_link]
+	//[show_bookings_link]
 	if(file_exists(get_stylesheet_directory() . '/downloads/bookings.pdf')) {
-		return "<a class='btn open_file' href='" . get_stylesheet_directory_uri() . "/downloads/bookings.pdf?download=bookings' target='_blank'>View Booking Sheet</a>";
+		return "<div class='btn open_file'>
+				  <a href='" . get_stylesheet_directory_uri() . "/downloads/bookings.pdf?download=bookings' target='_blank'>View Booking Sheet</a><br>
+				  <a href='" . get_stylesheet_directory_uri() . "/downloads/bookings-prev.pdf' target='_blank' class='open-download-prev'>Previous</a>
+				</div>";
 	} else {
 		return null;
 	}
@@ -241,9 +247,12 @@ function hsmc_show_bookings_link() {
 add_shortcode( 'show_bookings_link', 'hsmc_show_bookings_link' );
 
 function hsmc_show_rota_link() {
-	//[show_notices_link]
+	//[show_rota_link]
 	if(file_exists(get_stylesheet_directory() . '/downloads/rota.pdf')) {
-		return "<a class='btn open_file' href='" . get_stylesheet_directory_uri() . "/downloads/rota.pdf?download=rota' target='_blank'>View Rota</a>";
+		return "<div class='btn open_file'>
+				  <a href='" . get_stylesheet_directory_uri() . "/downloads/rota.pdf?download=rota' target='_blank'>View Rota</a><br>
+				  <a href='" . get_stylesheet_directory_uri() . "/downloads/rota-prev.pdf' target='_blank' class='open-download-prev'>Previous</a>
+				</div>";
 	} else {
 		return null;
 	}
@@ -259,10 +268,7 @@ function title_format($content) {
 add_filter('protected_title_format', 'title_format');
 add_filter('private_title_format', 'title_format');
 
-
-
-
-add_filter('omega_before_main','add_alt_menu');
+add_filter('omega_header','add_alt_menu');
 function add_alt_menu(){
 	wp_nav_menu( array(
 		'theme_location' => 'primary',
@@ -270,4 +276,58 @@ function add_alt_menu(){
 		'menu_class'     => 'menu menu-alternative',
 		'fallback_cb'	 => 'omega_default_menu'
 		));
+}
+
+add_filter('omega_header', 'insert_menu_mobile');
+function insert_menu_mobile() {
+
+	$menu_items = wp_get_nav_menu_items(2);
+	$menu_items = buildTree($menu_items);
+
+	echo '<div class="menu-mobile-wrapper" id="toggle-mobile-menu">
+			<div class="menu-mobile-icon"><img src="'. get_stylesheet_directory_uri() . '/images/button.png"></div>
+			<div id="menu-mobile">
+			<ul>';
+
+	foreach($menu_items as $menu_item) {
+		echo '<li class="menuItem--root"><a href="'. $menu_item->url .'">' . $menu_item->title . '</a></li>';
+		if ($menu_item->wpse_children && is_array($menu_item->wpse_children)) {
+			foreach($menu_item->wpse_children as $menu_item) {
+				echo '<li class="menuItem--child"><a href="' .  $menu_item->url . '">' . $menu_item->title . '</a></li>';
+				if ($menu_item->wpse_children && is_array($menu_item->wpse_children)) {
+					foreach($menu_item->wpse_children as $menu_item) {
+						echo '<li class="menuItem--grandchild"><a href="' . $menu_item->url. '">' . $menu_item->title . '</a></li>';
+					}
+				}
+			}
+		}
+	}
+	echo '</ul>
+		  </div>
+		  </div>';
+}
+
+/**
+ * Modification of "Build a tree from a flat array in PHP"
+ *
+ * Authors: @DSkinner, @ImmortalFirefly and @SteveEdson
+ *
+ * @link https://stackoverflow.com/a/28429487/2078474
+ */
+function buildTree( array &$elements, $parentId = 0 )
+{
+    $branch = array();
+    foreach ( $elements as &$element )
+    {
+        if ( $element->menu_item_parent == $parentId )
+        {
+            $children = buildTree( $elements, $element->ID );
+            if ( $children )
+                $element->wpse_children = $children;
+
+            $branch[$element->ID] = $element;
+            unset( $element );
+        }
+    }
+    return $branch;
 }

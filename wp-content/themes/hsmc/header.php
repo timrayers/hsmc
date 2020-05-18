@@ -29,6 +29,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </script>
 <div class="<?php echo omega_apply_atomic( 'site_container_class', 'site-container' );?>">
+  <div class="nav_social-container">
+    <div class="wrap nav_social-menu">
+      <div class="nav_social-item">
+        <a href="https://www.facebook.com/HighStreetMethodistChurchMaidenhead" target="_blank" title="View our Facebook page">
+          <img src="<?=get_stylesheet_directory_uri();?>/images/facebook-logo-white_transparent.png" alt="Facebook">
+        </a>
+      </div>
+      <div class="nav_social-item">
+        <a href="https://login.churchsuite.com/?account=methodistmaidenhead" target="_blank" title="Open ChurchSuite">
+          <img src="<?=get_stylesheet_directory_uri();?>/images/churchsuite-logo-white_transparent.png" alt="ChurchSuite">
+        </a>
+      </div>
+    </div>
+  </div>
 	<?php
 	do_action( 'omega_before_header' );
 	do_action( 'omega_header' );
