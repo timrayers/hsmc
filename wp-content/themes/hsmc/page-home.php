@@ -19,6 +19,10 @@ if ( is_active_sidebar( 'primary' ) ) : ?>
 <?php endif; ?>
 
 <main class="<?php echo omega_apply_atomic( 'main_class', 'content' );?>" <?php omega_attr( 'content' ); ?>>
+
+  <!-- <section id="christmas-events">
+    <header><h2><a href="/christmas">Christmas at High Street - click for details</a></h1></header>
+  </section><br><br> -->
 	<?php
 	do_action( 'omega_before_content' );
 	do_action( 'omega_content' );

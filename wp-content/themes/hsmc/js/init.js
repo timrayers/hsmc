@@ -4,16 +4,16 @@ jQuery(function ($) {
 		active: 'current-menu-item',
     header: ' ' // Writing any title with this option triggers the header
   });
- 
+
 	$(".menu-icon").click(function(){
 		$(".nav-primary ul.menu-primary").slideToggle();
 	});
 */
 
 	$('.nav-primary ul.menu-primary').superfish({
-		delay:       100,								// 0.1 second delay on mouseout 
-		animation:   {opacity:'show',height:'show'},	// fade-in and slide-down animation 
-		dropShadows: false								// disable drop shadows 
+		delay:       100,								// 0.1 second delay on mouseout
+		animation:   {opacity:'show',height:'show'},	// fade-in and slide-down animation
+		dropShadows: false								// disable drop shadows
 	});
 
 	$(".menu-icon").click(function(){
@@ -28,4 +28,8 @@ jQuery(function ($) {
 		}
 	});
 
+	$('#toggle-mobile-menu').click(function(){
+		$('#menu-mobile').toggleClass('visible');
+		$('.menu-mobile-icon').toggleClass('selected');
+	});
 });

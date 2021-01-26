@@ -37,6 +37,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </a>
       </div>
       <div class="nav_social-item">
+        <a href="https://www.youtube.com/channel/UC5dPDm6N5lD-AzUSw24aknw" target="_blank" title="Subscribe to our YouTube Channel">
+          <img src="<?=get_stylesheet_directory_uri();?>/images/youtube-logo-white_transparent.png" alt="YouTube">
+        </a>
+      </div>
+      <div class="nav_social-item">
         <a href="https://login.churchsuite.com/?account=methodistmaidenhead" target="_blank" title="Open ChurchSuite">
           <img src="<?=get_stylesheet_directory_uri();?>/images/churchsuite-logo-white_transparent.png" alt="ChurchSuite">
         </a>
